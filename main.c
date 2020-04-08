@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020
+/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020 
 * MODUL 8 – TUGAS BESAR
 * Kelompok : B1
 * Hari dan Tanggal : Selasa, 4 April 2020
