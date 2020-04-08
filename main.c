@@ -7,7 +7,7 @@
 * Kelompok : B1
 * Hari dan Tanggal : Selasa, 4 April 2020
 * Asisten (NIM) : Akmal Narendra Sakti (13213034)
-* Nama File : mainalgorithm.c
+* Nama File : main.c
 * Deskripsi : Algoritma utama 
 */
 
