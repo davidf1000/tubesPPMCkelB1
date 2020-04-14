@@ -1,7 +1,7 @@
 #include "mainalgorithm.h"
+#include "utility.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 /* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020 
 * MODUL 8 – TUGAS BESAR
 * Kelompok : B1
@@ -14,15 +14,20 @@
 
 int main()
 {
-    int row_in=30; // inputan 
-    int col_in=30; // inputan
+    int row_in=30; 
+    int col_in=30; 
     int n;
-    int **grid; 
-    grid=read(row_in,col_in); // ambil txt seed terus masukin ke 2d array grid
+    char filename[100];
+    printf("Masukkan nama file: "); 
+    // Kalau mau reload seed pake 2 baris dibawah 
+    // V V V V
+    scanf("%s",filename);
+    int **grid=newSeed(&row_in,&col_in,filename);
 
     //Display pertama kali
     displayGen(grid,row_in,col_in);
 
+    // Sementara dibuat kyk gini, selama user gak input 99 bakal terus tick
     scanf("%d",&n);
     while(n!=99)
     {

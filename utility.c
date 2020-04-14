@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-
-int **Cetak_Seed(int* matrixRow, int* matrixCol, char filename[50]);
+#include "utility.h"
 
 int **createArr(int row_in,int col_in)
 {
@@ -62,16 +61,4 @@ int **newSeed(int* matrixRow, int* matrixCol, char filename[50])
     }
     fclose(stream);
     return mat;
-}
-
-
-int main()
-{
-    char filename[50];
-    int matrixRow, matrixCol;
-    printf("Masukkan nama file: "); 
-    scanf("%s",filename);
-    int **mat=newSeed(&matrixRow,&matrixCol,filename);
-    displayGen(mat,matrixRow,matrixCol);
-    return 0;
 }
