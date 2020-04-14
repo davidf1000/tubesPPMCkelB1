@@ -14,8 +14,8 @@
 
 int main()
 {
-    int row_in=30; 
-    int col_in=30; 
+    int row_in; 
+    int col_in; 
     int n;
     char filename[100];
     printf("Masukkan nama file: "); 
