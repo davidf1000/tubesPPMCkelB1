@@ -5,30 +5,30 @@
 #include <string.h>
 
 // Mencari generasi selanjutnya
-void nextGen(int **grid,int M,int N) // M row , N collumn
+void nextGen(int **grid,int M,int N, int *count) // M row , N collumn
 {
     int **future=createArr(M,N);
     // isiArray(future);
     int r,c;
-    printf("Next Generation : \n");
+    *count = *count + 1;
     for (int row = 0; row < M ; row++) //row is row
-    { 
+    {
         for (int col = 0; col < N ; col++) // col is collumn
-        { 
-            int neighbour = 0; 
-            for (int i = -1; i <= 1; i++) 
+        {
+            int neighbour = 0;
+            for (int i = -1; i <= 1; i++)
             {
                 for (int j = -1; j <= 1; j++)
                 {
                     r=i+row;
                     c=j+col;
-                    // Kondisi normal 
+                    // Kondisi normal
                      if(checkBound(r,c,M,N))
                      {
-                    neighbour += grid[r][c]; 
-                     } 
-                    // Kondisi ujung atas 
-                } 
+                    neighbour += grid[r][c];
+                     }
+                    // Kondisi ujung atas
+                }
 
             }
             //Hitung untuk kasus khusus (yang berada di edge)
@@ -50,8 +50,8 @@ void nextGen(int **grid,int M,int N) // M row , N collumn
                 }
                 if(checkBound(r,c,M,N))
                 {
-                neighbour += grid[r][c]; 
-                } 
+                neighbour += grid[r][c];
+                }
             }
             for (int p = -1; p <= 1; p++)
             {
@@ -71,66 +71,66 @@ void nextGen(int **grid,int M,int N) // M row , N collumn
                 }
                 if(checkBound(r,c,M,N))
                 {
-                neighbour += grid[r][c]; 
-                } 
+                neighbour += grid[r][c];
+                }
             }
 
             // Pojok kiri atas
             if(row==0 && col==0)
             {
-                neighbour += grid[M-1][N-1]; 
+                neighbour += grid[M-1][N-1];
 
             }
             //Pojok kiri bawah
             if(row==M-1 && col==0)
             {
-                neighbour += grid[0][N-1];  
+                neighbour += grid[0][N-1];
 
             }
             //Pojok kanan atas
             if(row==0 && col==N-1)
             {
-                neighbour += grid[M-1][0]; 
+                neighbour += grid[M-1][0];
 
             }
             //Pojok kanan bawah
             if(row==M-1 && col==N-1)
             {
-                neighbour += grid[0][0]; 
+                neighbour += grid[0][0];
 
             }
-            // The cell needs to be subtracted from 
-            // its neighbours as it was counted before 
-            neighbour -= grid[row][col]; 
+            // The cell needs to be subtracted from
+            // its neighbours as it was counted before
+            neighbour -= grid[row][col];
             //  printf("%d ",neighbour);
-            // Implementing the Rules of Life 
+            // Implementing the Rules of Life
 
             // underpopulation
-            if ((grid[row][col] == 1) && (neighbour < 2)) 
+            if ((grid[row][col] == 1) && (neighbour < 2))
             {
-                future[row][col] = 0; 
-                
+                future[row][col] = 0;
+
             }
 
             // overpopulation
-            else if ((grid[row][col] == 1) && (neighbour > 3)) 
+            else if ((grid[row][col] == 1) && (neighbour > 3))
             {
-                future[row][col] = 0; 
+                future[row][col] = 0;
 
             }
-            
 
-            // Sel baru 
-            else if ((grid[row][col] == 0) && (neighbour == 3)) 
+
+            // Sel baru
+            else if ((grid[row][col] == 0) && (neighbour == 3))
             {
-                future[row][col] = 1; 
+                future[row][col] = 1;
 
             }
 
             // Kondisi tidak berubah
             else
             {
-                future[row][col] = grid[row][col]; 
+                future[row][col] = grid[row][col];
 
             }
 
@@ -143,7 +143,7 @@ void nextGen(int **grid,int M,int N) // M row , N collumn
         {
            grid[i][j]=future[i][j];
         }
-        
+
     }
 
 }
@@ -152,4 +152,3 @@ int checkBound(int r,int c,int M,int N)
 {
      return (!(r<0 || r>(M-1) ||c<0 || c>(N-1)));
 }
-

@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include <time.h>
 #include "utility.h"
+#include "mainalgorithm.h"
 
 int **createArr(int row_in,int col_in)
 {
@@ -13,12 +15,13 @@ int **createArr(int row_in,int col_in)
     }
     return grid;
 }
-void displayGen(int **grid,int row,int col)
+void displayGen(int **grid,int row,int col, int *count)
 {
-    for (int i = 0; i < row; i++) 
-    { 
-        for (int j = 0; j < col; j++) 
-        { 
+    printf("Generation - %d :\n", *count);
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
             if (grid[i][j] == 0)
             {
                 printf(". ");
@@ -29,8 +32,8 @@ void displayGen(int **grid,int row,int col)
 
             }
         }
-    printf("\n"); 
-    } 
+    printf("\n");
+    }
 }
 int **newSeed(int* matrixRow, int* matrixCol, char filename[50])
 {
@@ -61,4 +64,19 @@ int **newSeed(int* matrixRow, int* matrixCol, char filename[50])
     }
     fclose(stream);
     return mat;
+}
+
+void delay(int n){
+    clock_t start_time = clock();
+
+    while (clock() < start_time + n);
+}
+
+void animate(int n, int **grid, int M, int N, int *count){
+    for (int i = 0; i < n; i++){
+        system("cls");
+        nextGen(grid, M, N, count);
+        displayGen(grid, M, N, count);
+        delay(200);
+    }
 }
