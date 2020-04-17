@@ -4,7 +4,9 @@
 * Hari dan Tanggal : Kamis, 17 April 2020
 * Asisten (NIM) : Akmal Narendra Sakti (13213034)
 * Nama File : main.c
-* Deskripsi : Algoritma utama 
+* Deskripsi : program main() yang menggunakan seluruh fungsi dari header dan berisi main menu .
+*           Program merupakan simulasi Game of Life yang meminta input berupa seed dan 
+*           selanjutnya mensimulasikan populasi grid berdasarkan pilihan user yaitu tick atau animate
 */
 
 #include "mainalgorithm.h"

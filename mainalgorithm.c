@@ -3,7 +3,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020
+* MODUL 8 – TUGAS BESAR
+* Kelompok : B1
+* Hari dan Tanggal : Selasa, 4 April 2020
+* Asisten (NIM) : Akmal Narendra Sakti (13213034)
+* Nama File : mainalgorithm.c
+* Deskripsi : Header yang berisi fungsi-fungsi yang menghitung dan 
+*mengkalkulasikan simulasi iterasi selanjutnya dari sebuah grid.
+*
+*/
 // Mencari generasi selanjutnya
 void nextGen(int **grid,int M,int N, int *count) // M row , N collumn
 {
