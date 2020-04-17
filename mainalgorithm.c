@@ -113,7 +113,7 @@ void nextGen(int **grid,int M,int N) // M row , N collumn
             }
 
             // overpopulation
-            else if ((grid[row][col] == 1) && (neighbour > 3)) 
+            else if ((grid[row][col] == 1) && (neighbour > 4)) 
             {
                 future[row][col] = 0; 
 
