@@ -37,7 +37,7 @@ int main()
         printf("eksternal berisi pola yang disebut seed.\n\n");
         printf("==================================================\n");
         // Input file pola
-        printf("Masukan nama file :");
+        printf("Masukan nama file : ");
         scanf("%s", namafile);
 
         // Procedure cetak Seed
@@ -51,7 +51,7 @@ int main()
             printf(" 1. Tick    (mencetak next pattern 1 kali)\n");
             printf(" 2. Animate (mencetak next pattern N kali)\n");
             printf(" 3. Quit    (ganti seed / keluar)\n");
-            printf("Masukan angka pilihan :");
+            printf("Masukan angka pilihan : ");
             scanf(" %c", &pilihan);
 
             if(pilihan == '1')
@@ -62,7 +62,7 @@ int main()
             } else if (pilihan == '2')
             {
                 // -> Procedure animate
-                printf("Masukkan jumlah n iterasi :");
+                printf("Masukkan jumlah n iterasi : ");
                 scanf("%d", &n);
                 animate(n, grid, row_in, col_in, &gen_count);
             } else if (pilihan == '3')
@@ -77,7 +77,8 @@ int main()
         // Menu quit
         printf("Apakah anda akan memasukan file seed baru (Y/N)? ");
         scanf(" %c", &reinput);
-    }while(reinput == 'Y');
+        gen_count = 0;
+    }while((reinput == 'Y') || (reinput == 'y'));
 
     printf("Menutup program...\n");
     printf("Terima kasih !\n");
